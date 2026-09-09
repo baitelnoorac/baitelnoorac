@@ -112,17 +112,19 @@
       align-items: center;   /* Added: Centers everything perfectly horizontally */
               }
 
-  .hero-logo {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;   /* Keeps the image scaling cleanly inside */
-      background: white;
-      border-radius: 50%;
-      padding: 15px;         /* Increased slightly: Gives your image more breathing room inside the circle */
-      margin-bottom: 25px;
-      flex-shrink: 0;        /* Prevents layout from collapsing the circle vertically */
-      box-sizing: border-box;/* Added: Crucial to ensure padding doesn't distort the 150x150px boundaries */
-            }
+.hero-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background: white;
+  border-radius: 12px;    /* Changes from a strict circle to a smooth rounded square to save the text */
+  padding: 12px;
+  margin-bottom: 25px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Optional: Adds a premium drop shadow layout */
+}
+
 
     .hero h1 {
       font-size: clamp(42px, 7vw, 72px);
