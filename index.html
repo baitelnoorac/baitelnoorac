@@ -414,6 +414,38 @@
         padding: 70px 20px;
       }
     }
+      .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+/* Style the dropdown menu box (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff; /* Change to match your nav background */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
+  z-index: 1;
+}
+
+/* Style the individual links inside the dropdown */
+.dropdown-content a {
+  color: #333333; /* Change text color to fit your design */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu when hovering over the About link container */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
   </style>
 </head>
 
@@ -430,7 +462,14 @@
     </a>
 
     <div class="nav-links">
-      <a href="#about">About</a>
+      <div class="dropdown">
+       <a href="#about" class="dropbtn">About</a>
+        <div class="dropdown-content">
+        <a href="#our-story">Our Story</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#beliefs">What We Believe</a>
+      </div>
+    </div>
       <a href="#service">Service</a>
       <a href="#sermons">Sermons</a>
       <a href="#events">Events</a>
