@@ -91,7 +91,7 @@
 
     /* HERO */
 
-    .hero {
+   .hero {
       min-height: 720px;
       padding: 150px 25px 100px;
       display: flex;
@@ -99,26 +99,30 @@
       justify-content: center;
       text-align: center;
       background:
-        linear-gradient(rgba(25,52,70,0.72), rgba(25,52,70,0.72)),
-        url("background.png")
-        center/cover;
+      linear-gradient(rgba(25,52,70,0.72), rgba(25,52,70,0.72)),
+      url("background.png")
+      center/cover;
       color: white;
-    }
+        }
 
-    .hero-content {
+  .hero-content {
       max-width: 850px;
-    }
+      display: flex;         /* Added: Forces children layout to obey strict spacing rules */
+      flex-direction: column;/* Added: Stacks your logo, title, and text vertically */
+      align-items: center;   /* Added: Centers everything perfectly horizontally */
+              }
 
-    .hero-logo {
+  .hero-logo {
       width: 150px;
       height: 150px;
-      object-fit: contain;
+      object-fit: contain;   /* Keeps the image scaling cleanly inside */
       background: white;
       border-radius: 50%;
-      padding: 10px;
+      padding: 15px;         /* Increased slightly: Gives your image more breathing room inside the circle */
       margin-bottom: 25px;
-      flex-shrink: 0;
-    }
+      flex-shrink: 0;        /* Prevents layout from collapsing the circle vertically */
+      box-sizing: border-box;/* Added: Crucial to ensure padding doesn't distort the 150x150px boundaries */
+            }
 
     .hero h1 {
       font-size: clamp(42px, 7vw, 72px);
