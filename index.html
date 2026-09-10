@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Bait El Noor Arabic Church</title>
-  <meta name="description" content="Bait El Noor Arabic Church in Cincinnati, Ohio.">
+
+  <meta
+    name="description"
+    content="Bait El Noor Arabic Church in Liberty Township, Ohio. Join us for worship, fellowship, sermons, events, and community."
+  >
+
+  <meta name="theme-color" content="#234b63">
 
   <style>
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -16,6 +27,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -23,6 +35,11 @@
       color: #243447;
       background: #ffffff;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     a {
@@ -30,7 +47,19 @@
       color: inherit;
     }
 
-    /* NAVIGATION */
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
 
     nav {
       position: fixed;
@@ -38,121 +67,326 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .nav-container {
       max-width: 1150px;
       margin: auto;
-      padding: 15px 25px;
+
+      min-height: 76px;
+      padding: 12px 25px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
       font-size: 21px;
       font-weight: bold;
       color: #234b63;
+      line-height: 1.1;
+      flex-shrink: 0;
     }
 
     .brand span {
       display: block;
+      margin-top: 4px;
+
       font-size: 12px;
       font-weight: normal;
       color: #8a6a35;
+      letter-spacing: 0.3px;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 23px;
       align-items: center;
     }
 
-    .nav-links a {
+    .nav-links > a,
+    .dropbtn {
       font-size: 14px;
       color: #34495e;
+      transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links > a:hover,
+    .dropbtn:hover {
       color: #9a7538;
     }
 
+
+    /* =========================================================
+       ABOUT DROPDOWN - DESKTOP
+    ========================================================= */
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      cursor: pointer;
+    }
+
+    .dropbtn::after {
+      content: "⌄";
+      font-size: 13px;
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown:hover .dropbtn::after,
+    .dropdown:focus-within .dropbtn::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 15px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+
+      width: 190px;
+
+      background: #ffffff;
+      border-radius: 12px;
+
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+
+      padding: 8px;
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+    }
+
+    /* Small invisible bridge prevents dropdown disappearing */
+    .dropdown-content::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 0;
+      right: 0;
+      height: 15px;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-content a {
+      display: block;
+
+      padding: 11px 13px;
+
+      color: #34495e;
+      font-size: 14px;
+
+      border-radius: 8px;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: #f4f6f7;
+      color: #9a7538;
+      outline: none;
+    }
+
+
+    /* =========================================================
+       LANGUAGE BUTTON
+    ========================================================= */
+
     .language {
       border: 1px solid #9a7538;
+
       padding: 7px 13px;
       border-radius: 20px;
+
       color: #9a7538 !important;
       cursor: pointer;
       background: white;
+
+      transition: all 0.2s ease;
     }
 
-    /* HERO */
+    .language:hover {
+      background: #9a7538;
+      color: white !important;
+    }
 
-   .hero {
+
+    /* =========================================================
+       MOBILE MENU BUTTON
+    ========================================================= */
+
+    .menu-toggle {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid #d9dee2;
+      border-radius: 10px;
+
+      background: #ffffff;
+      color: #234b63;
+
+      cursor: pointer;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      display: block;
+
+      width: 21px;
+      height: 2px;
+
+      background: #234b63;
+      border-radius: 3px;
+
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
       min-height: 720px;
+
       padding: 150px 25px 100px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       background:
-      linear-gradient(rgba(25,52,70,0.72), rgba(25,52,70,0.72)),
-      url("background.png")
-      center/cover;
+        linear-gradient(
+          rgba(25, 52, 70, 0.72),
+          rgba(25, 52, 70, 0.72)
+        ),
+        url("background.png") center / cover no-repeat;
+
       color: white;
-        }
+    }
 
-  .hero-content {
+    .hero-content {
       max-width: 850px;
-      display: flex;         /* Added: Forces children layout to obey strict spacing rules */
-      flex-direction: column;/* Added: Stacks your logo, title, and text vertically */
-      align-items: center;   /* Added: Centers everything perfectly horizontally */
-              }
 
-.hero-logo {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  background: white;
-  border-radius: 12px;    /* Changes from a strict circle to a smooth rounded square to save the text */
-  padding: 12px;
-  margin-bottom: 25px;
-  flex-shrink: 0;
-  box-sizing: border-box;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Optional: Adds a premium drop shadow layout */
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
+    .hero-logo {
+      width: 150px;
+      height: 150px;
+
+      object-fit: contain;
+
+      background: white;
+      border-radius: 12px;
+
+      padding: 12px;
+      margin-bottom: 25px;
+
+      flex-shrink: 0;
+
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.20);
+    }
 
     .hero h1 {
       font-size: clamp(42px, 7vw, 72px);
+
       line-height: 1.05;
+
       margin-bottom: 20px;
+
       letter-spacing: -1px;
     }
 
     .hero p {
       font-size: 21px;
+
       max-width: 650px;
+
       margin: 0 auto 35px;
-      opacity: .95;
+
+      opacity: 0.95;
     }
 
     .buttons {
       display: flex;
+
       justify-content: center;
+
       gap: 15px;
+
       flex-wrap: wrap;
     }
 
     .button {
       padding: 14px 27px;
+
       border-radius: 30px;
+
       font-weight: bold;
+
       display: inline-block;
-      transition: .25s;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .button-primary {
@@ -162,7 +396,11 @@
 
     .button-primary:hover {
       background: #96733e;
+
       transform: translateY(-2px);
+
+      box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.15);
     }
 
     .button-light {
@@ -172,9 +410,15 @@
 
     .button-light:hover {
       transform: translateY(-2px);
+
+      box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.15);
     }
 
-    /* GENERAL */
+
+    /* =========================================================
+       GENERAL
+    ========================================================= */
 
     section {
       padding: 90px 25px;
@@ -192,17 +436,24 @@
 
     .section-title h2 {
       font-size: 38px;
+
       color: #234b63;
+
       margin-bottom: 10px;
     }
 
     .section-title p {
       color: #6b7785;
+
       max-width: 650px;
+
       margin: auto;
     }
 
-    /* WELCOME */
+
+    /* =========================================================
+       WELCOME / ABOUT
+    ========================================================= */
 
     .welcome {
       text-align: center;
@@ -210,19 +461,82 @@
 
     .welcome-text {
       max-width: 800px;
+
       margin: auto;
+
       font-size: 19px;
+
       color: #566573;
     }
 
     .arabic {
       font-size: 27px;
+
       direction: rtl;
+
       margin-top: 25px;
+
       color: #9a7538;
     }
 
-    /* SERVICE */
+
+    /* =========================================================
+       ABOUT SUBSECTIONS
+    ========================================================= */
+
+    .about-subsections {
+      max-width: 1100px;
+
+      margin: 65px auto 0;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+    .about-box {
+      background: #f5f7f8;
+
+      border-radius: 16px;
+
+      padding: 32px 25px;
+
+      text-align: center;
+
+      border: 1px solid #e7eaed;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .about-box:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .about-box h3 {
+      color: #234b63;
+
+      font-size: 22px;
+
+      margin-bottom: 10px;
+    }
+
+    .about-box p {
+      color: #687582;
+
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       SERVICE
+    ========================================================= */
 
     .service {
       background: #f5f7f8;
@@ -230,56 +544,92 @@
 
     .service-card {
       max-width: 700px;
+
       margin: auto;
+
       background: white;
+
       padding: 45px;
+
       text-align: center;
+
       border-radius: 18px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.07);
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.07);
     }
 
     .service-card .icon {
       font-size: 45px;
+
       margin-bottom: 15px;
     }
 
     .service-card h3 {
       color: #234b63;
+
       font-size: 28px;
+
       margin-bottom: 10px;
     }
 
     .service-time {
       font-size: 25px;
+
       font-weight: bold;
+
       color: #9a7538;
+
       margin: 12px 0;
     }
 
-    /* CARDS */
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
 
     .cards {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 25px;
     }
 
     .card {
       padding: 35px 28px;
+
       border: 1px solid #e7eaed;
+
       border-radius: 15px;
+
       text-align: center;
+
       background: white;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.07);
     }
 
     .card-icon {
       font-size: 38px;
+
       margin-bottom: 15px;
     }
 
     .card h3 {
       color: #234b63;
+
       margin-bottom: 10px;
+
       font-size: 22px;
     }
 
@@ -287,26 +637,62 @@
       color: #687582;
     }
 
-    /* GIVING */
+
+    /* =========================================================
+       EVENTS
+    ========================================================= */
+
+    .events-section {
+      background: #ffffff;
+    }
+
+    .event-note {
+      text-align: center;
+
+      max-width: 700px;
+
+      margin: auto;
+
+      padding: 35px;
+
+      border-radius: 15px;
+
+      background: #f5f7f8;
+
+      color: #687582;
+    }
+
+
+    /* =========================================================
+       GIVING
+    ========================================================= */
 
     .giving {
       background: #234b63;
+
       color: white;
+
       text-align: center;
     }
 
     .giving h2 {
       font-size: 40px;
+
       margin-bottom: 15px;
     }
 
     .giving p {
       max-width: 650px;
+
       margin: 0 auto 30px;
-      opacity: .9;
+
+      opacity: 0.9;
     }
 
-    /* VISIT */
+
+    /* =========================================================
+       VISIT
+    ========================================================= */
 
     .visit {
       background: #f5f7f8;
@@ -314,37 +700,55 @@
 
     .visit-grid {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 35px;
+
       align-items: stretch;
     }
 
     .address {
       background: white;
+
       padding: 40px;
+
       border-radius: 15px;
     }
 
     .address h3 {
       color: #234b63;
+
       font-size: 26px;
+
       margin-bottom: 20px;
     }
 
     .map {
       min-height: 330px;
+
       border-radius: 15px;
+
       overflow: hidden;
+
+      box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
     }
 
     .map iframe {
       width: 100%;
+
       height: 100%;
+
       min-height: 330px;
+
       border: 0;
     }
 
-    /* SOCIAL */
+
+    /* =========================================================
+       SOCIAL
+    ========================================================= */
 
     .social {
       text-align: center;
@@ -352,31 +756,51 @@
 
     .social-links {
       display: flex;
+
       justify-content: center;
+
       gap: 15px;
+
       flex-wrap: wrap;
+
       margin-top: 25px;
     }
 
     .social-link {
       border: 1px solid #dce1e5;
+
       padding: 13px 22px;
+
       border-radius: 30px;
+
       color: #234b63;
-      transition: .2s;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
     .social-link:hover {
       background: #234b63;
+
       color: white;
+
+      transform: translateY(-2px);
     }
 
-    /* FOOTER */
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
     footer {
       background: #182d3b;
+
       color: white;
+
       text-align: center;
+
       padding: 45px 25px;
     }
 
@@ -386,19 +810,198 @@
 
     footer p {
       color: #cbd4da;
+
       font-size: 14px;
     }
 
-    /* MOBILE */
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links > a,
+      .dropbtn {
+        font-size: 13px;
+      }
+
+      .about-subsections {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE / TABLET NAVIGATION
+    ========================================================= */
 
     @media (max-width: 800px) {
 
+      .nav-container {
+        min-height: 70px;
+
+        padding: 10px 18px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
       .nav-links {
+        position: fixed;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        max-height: calc(100vh - 70px);
+
+        overflow-y: auto;
+
+        background: white;
+
+        padding: 15px 20px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 4px;
+
+        box-shadow:
+          0 12px 25px rgba(0, 0, 0, 0.10);
+
+        transform: translateY(-15px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+      }
+
+      .nav-links > a,
+      .dropbtn {
+        width: 100%;
+
+        padding: 13px 10px;
+
+        font-size: 16px;
+      }
+
+      .language {
+        text-align: center;
+
+        margin-top: 8px;
+      }
+
+
+      /* Mobile About */
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropdown .dropbtn {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+      }
+
+      .dropdown-content {
+        position: static;
+
+        transform: none;
+
+        width: 100%;
+
+        box-shadow: none;
+
+        border-radius: 8px;
+
+        padding: 0 0 5px;
+
+        background: #f5f7f8;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
         display: none;
       }
 
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content::before {
+        display: none;
+      }
+
+      .dropdown-content a {
+        padding: 11px 20px;
+
+        font-size: 15px;
+
+        border-bottom: 1px solid #e5e8ea;
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown.open .dropbtn::after {
+        transform: rotate(180deg);
+      }
+
+
+      /* Hero */
+
       .hero {
-        min-height: 650px;
+        min-height: 680px;
+
+        padding:
+          125px 20px
+          80px;
+      }
+
+      .hero-logo {
+        width: 145px;
+
+        height: 145px;
+
+        margin-bottom: 22px;
       }
 
       .hero h1 {
@@ -409,115 +1012,240 @@
         font-size: 18px;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+
+      /* Sections */
+
+      section {
+        padding: 70px 20px;
       }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+
+      /* Visit */
 
       .visit-grid {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 70px 20px;
+      .map,
+      .map iframe {
+        min-height: 300px;
       }
-    }
-      .dropdown {
-      position: relative;
-      display: inline-block;
+
     }
 
-/* Style the dropdown menu box (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #ffffff; /* Change to match your nav background */
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
-  z-index: 1;
-}
 
-/* Style the individual links inside the dropdown */
-.dropdown-content a {
-  color: #333333; /* Change text color to fit your design */
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    /* =========================================================
+       SMALL PHONES
+    ========================================================= */
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
+    @media (max-width: 480px) {
 
-/* Show the dropdown menu when hovering over the About link container */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-    
+      .brand {
+        font-size: 18px;
+      }
+
+      .brand span {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero-logo {
+        width: 125px;
+
+        height: 125px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .button {
+        width: 100%;
+
+        max-width: 280px;
+      }
+
+      .service-card,
+      .address {
+        padding: 30px 22px;
+      }
+
+      .giving h2 {
+        font-size: 33px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav>
+
   <div class="nav-container">
 
-    <a href="#home" class="brand">
+    <a href="#home" class="brand" onclick="closeMobileMenu()">
       Bait El Noor
       <span>Arabic Church</span>
     </a>
 
-    <div class="nav-links">
-      <div class="dropdown">
-       <a href="#about" class="dropbtn">About</a>
+
+    <!-- Desktop + Mobile Navigation -->
+
+    <div class="nav-links" id="navLinks">
+
+
+      <!-- ABOUT -->
+
+      <div class="dropdown" id="aboutDropdown">
+
+        <a
+          href="#about"
+          class="dropbtn"
+          id="aboutButton"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          About
+        </a>
+
         <div class="dropdown-content">
-        <a href="#our-story">Our Story</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#beliefs">Our Beliefs</a>
+
+          <a href="#our-story" onclick="closeMobileMenu()">
+            Our Story
+          </a>
+
+          <a href="#leadership" onclick="closeMobileMenu()">
+            Leadership
+          </a>
+
+          <a href="#beliefs" onclick="closeMobileMenu()">
+            Our Beliefs
+          </a>
+
+        </div>
+
       </div>
-    </div>
-      <a href="#service">Service</a>
-      <a href="#sermons">Sermons</a>
-      <a href="#events">Events</a>
-      <a href="#giving">Give</a>
-      <a href="#visit">Visit</a>
-      <a href="#" class="language" onclick="toggleLanguage(); return false;">
+
+
+      <a href="#service" onclick="closeMobileMenu()">
+        Service
+      </a>
+
+      <a href="#sermons" onclick="closeMobileMenu()">
+        Sermons
+      </a>
+
+      <a href="#events" onclick="closeMobileMenu()">
+        Events
+      </a>
+
+      <a href="#giving" onclick="closeMobileMenu()">
+        Give
+      </a>
+
+      <a href="#visit" onclick="closeMobileMenu()">
+        Visit
+      </a>
+
+
+      <a
+        href="#"
+        class="language"
+        id="languageButton"
+        onclick="toggleLanguage(); return false;"
+      >
         العربية
       </a>
+
     </div>
 
+
+    <!-- Hamburger -->
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
   </div>
+
 </nav>
 
 
-<!-- HERO -->
+
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero" id="home">
 
   <div class="hero-content">
 
-    <!-- We will add your logo file here -->
-    <img src="logo.png" style="max-width: 100%; height: auto;"
-         alt="Bait El Noor Arabic Church Logo"
-         class="hero-logo">
+    <img
+      src="logo.png"
+      alt="Bait El Noor Arabic Church Logo"
+      class="hero-logo"
+    >
 
-    <h1>Welcome to<br>Bait El Noor Arabic Church</h1>
+
+    <h1>
+      Welcome to<br>
+      Bait El Noor Arabic Church
+    </h1>
+
 
     <p>
       A place of faith, hope, worship, and community.
       We would love to welcome you.
     </p>
 
+
     <div class="buttons">
-      <a href="#visit" class="button button-primary">
+
+      <a
+        href="#visit"
+        class="button button-primary"
+      >
         Plan Your Visit
       </a>
 
-      <a href="#sermons" class="button button-light">
+
+      <a
+        href="#sermons"
+        class="button button-light"
+      >
         Watch Sermons
       </a>
+
     </div>
 
   </div>
@@ -525,23 +1253,36 @@
 </section>
 
 
-<!-- WELCOME -->
+
+<!-- =========================================================
+     WELCOME / ABOUT
+========================================================= -->
 
 <section class="welcome" id="about">
 
   <div class="container">
 
     <div class="section-title">
-      <h2>Welcome</h2>
-      <p>Everyone is welcome at Bait El Noor Arabic Church.</p>
+
+      <h2>
+        Welcome
+      </h2>
+
+      <p>
+        Everyone is welcome at Bait El Noor Arabic Church.
+      </p>
+
     </div>
+
 
     <div class="welcome-text">
 
       <p>
-        Bait El Noor Arabic Church in Cincinnati is a community centered on faith,
-        worship, fellowship, and growing together in Christ.
+        Bait El Noor Arabic Church in Cincinnati is a community
+        centered on faith, worship, fellowship, and growing
+        together in Christ.
       </p>
+
 
       <p class="arabic">
         أهلاً بكم في كنيسة بيت النور العربية في سينسيناتي اوهايو
@@ -549,40 +1290,127 @@
 
     </div>
 
+
+    <!-- About destinations -->
+
+    <div class="about-subsections">
+
+
+      <div
+        class="about-box"
+        id="our-story"
+      >
+
+        <h3>
+          Our Story
+        </h3>
+
+        <p>
+          Learn more about the story, journey, and ministry
+          of Bait El Noor Arabic Church.
+        </p>
+
+      </div>
+
+
+      <div
+        class="about-box"
+        id="leadership"
+      >
+
+        <h3>
+          Leadership
+        </h3>
+
+        <p>
+          Meet the people serving and leading our church
+          community.
+        </p>
+
+      </div>
+
+
+      <div
+        class="about-box"
+        id="beliefs"
+      >
+
+        <h3>
+          Our Beliefs
+        </h3>
+
+        <p>
+          Learn more about the faith and beliefs that guide
+          our church.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- SERVICE -->
 
-<section class="service" id="service">
+<!-- =========================================================
+     SERVICE
+========================================================= -->
+
+<section
+  class="service"
+  id="service"
+>
 
   <div class="container">
 
+
     <div class="section-title">
-      <h2>Join Us for Worship</h2>
-      <p>We would be happy to have you worship with us.</p>
+
+      <h2>
+        Join Us for Worship
+      </h2>
+
+      <p>
+        We would be happy to have you worship with us.
+      </p>
+
     </div>
+
 
     <div class="service-card">
 
-      <div class="icon">⛪</div>
+      <div class="icon">
+        ⛪
+      </div>
 
-      <h3>Weekly Service</h3>
+
+      <h3>
+        Weekly Service
+      </h3>
+
 
       <div class="service-time">
         Every Friday • 7:00 PM
       </div>
+
 
       <p>
         7127 Dutchland Pkwy<br>
         Liberty Township, OH 45044
       </p>
 
+
       <br>
 
-      <a href="#visit" class="button button-primary">
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=7127+Dutchland+Pkwy+Liberty+Township+OH+45044"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button button-primary"
+      >
         Get Directions
       </a>
 
@@ -593,49 +1421,104 @@
 </section>
 
 
-<!-- FEATURES -->
+
+<!-- =========================================================
+     SERMONS / CONNECTION
+========================================================= -->
 
 <section id="sermons">
 
   <div class="container">
 
+
     <div class="section-title">
-      <h2>Connect With Us</h2>
+
+      <h2>
+        Connect With Us
+      </h2>
+
       <p>
-        Stay connected with our church community throughout the week.
+        Stay connected with our church community throughout
+        the week.
       </p>
+
     </div>
+
 
     <div class="cards">
 
+
+      <!-- SERMONS -->
+
       <div class="card">
-        <div class="card-icon">🎥</div>
-        <h3>Sermons</h3>
+
+        <div class="card-icon">
+          🎥
+        </div>
+
+        <h3>
+          Sermons
+        </h3>
+
         <p>
-          Watch messages and sermons from Bait El Noor Arabic Church.
+          Watch messages and sermons from
+          Bait El Noor Arabic Church.
         </p>
+
         <br>
-        <a href="https://www.youtube.com/@baitelnoorac"
-           target="_blank"
-           class="button button-primary">
-          YouTube
+
+        <a
+          href="https://www.youtube.com/@baitelnoorac"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-primary"
+        >
+          Watch on YouTube
         </a>
+
       </div>
 
-      <div class="card" id="events">
-        <div class="card-icon">📅</div>
-        <h3>Events</h3>
+
+      <!-- EVENTS -->
+
+      <div
+        class="card"
+        id="events"
+      >
+
+        <div class="card-icon">
+          📅
+        </div>
+
+        <h3>
+          Events
+        </h3>
+
         <p>
-          Check back here for upcoming church events and activities.
+          Check back here for upcoming church events
+          and activities.
         </p>
+
       </div>
+
+
+      <!-- COMMUNITY -->
 
       <div class="card">
-        <div class="card-icon">🙏</div>
-        <h3>Community</h3>
+
+        <div class="card-icon">
+          🙏
+        </div>
+
+        <h3>
+          Community
+        </h3>
+
         <p>
-          Come worship, fellowship, and grow together with us.
+          Come worship, fellowship, and grow together
+          with us.
         </p>
+
       </div>
 
     </div>
@@ -645,21 +1528,72 @@
 </section>
 
 
-<!-- GIVING -->
 
-<section class="giving" id="giving">
+<!-- =========================================================
+     EVENTS
+========================================================= -->
+
+<section class="events-section">
 
   <div class="container">
 
-    <h2>Give Online</h2>
+    <div class="section-title">
+
+      <h2>
+        Upcoming Events
+      </h2>
+
+      <p>
+        Stay up to date with what's happening at Bait El Noor.
+      </p>
+
+    </div>
+
+
+    <div class="event-note">
+
+      <p>
+        Upcoming church events will be posted here.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GIVING
+========================================================= -->
+
+<section
+  class="giving"
+  id="giving"
+>
+
+  <div class="container">
+
+
+    <h2>
+      Give Online
+    </h2>
+
 
     <p>
       Your generosity helps support the ministry and mission
       of Bait El Noor Arabic Church.
     </p>
 
-    <!-- We will connect your secure donation platform here -->
-    <a href="#" class="button button-primary">
+
+    <!-- Donation platform will be connected here -->
+
+    <a
+      href="#"
+      class="button button-primary"
+      onclick="donationComingSoon(event)"
+    >
       Give Online
     </a>
 
@@ -668,57 +1602,96 @@
 </section>
 
 
-<!-- VISIT -->
 
-<section class="visit" id="visit">
+<!-- =========================================================
+     VISIT
+========================================================= -->
+
+<section
+  class="visit"
+  id="visit"
+>
 
   <div class="container">
 
+
     <div class="section-title">
-      <h2>Plan Your Visit</h2>
-      <p>We look forward to seeing you.</p>
+
+      <h2>
+        Plan Your Visit
+      </h2>
+
+      <p>
+        We look forward to seeing you.
+      </p>
+
     </div>
+
 
     <div class="visit-grid">
 
+
+      <!-- ADDRESS -->
+
       <div class="address">
 
-        <h3>📍 Find Us</h3>
+        <h3>
+          📍 Find Us
+        </h3>
+
 
         <p>
-          <strong>Bait El Noor Arabic Church</strong>
+          <strong>
+            Bait El Noor Arabic Church
+          </strong>
         </p>
 
+
         <br>
+
 
         <p>
           7127 Dutchland Pkwy<br>
           Liberty Township, OH 45044
         </p>
 
+
         <br>
 
+
         <p>
-          <strong>Service:</strong><br>
+          <strong>
+            Service:
+          </strong>
+          <br>
           Friday at 7:00 PM
         </p>
 
+
         <br>
+
 
         <a
           href="https://www.google.com/maps/search/?api=1&query=7127+Dutchland+Pkwy+Liberty+Township+OH+45044"
           target="_blank"
-          class="button button-primary">
+          rel="noopener noreferrer"
+          class="button button-primary"
+        >
           Open in Google Maps
         </a>
 
       </div>
 
+
+      <!-- MAP -->
+
       <div class="map">
 
         <iframe
           src="https://www.google.com/maps?q=7127+Dutchland+Pkwy,+Liberty+Township,+OH+45044&output=embed"
-          loading="lazy">
+          loading="lazy"
+          title="Map showing Bait El Noor Arabic Church"
+        >
         </iframe>
 
       </div>
@@ -730,15 +1703,21 @@
 </section>
 
 
-<!-- SOCIAL MEDIA -->
+
+<!-- =========================================================
+     SOCIAL MEDIA
+========================================================= -->
 
 <section class="social">
 
   <div class="container">
 
+
     <div class="section-title">
 
-      <h2>Stay Connected</h2>
+      <h2>
+        Stay Connected
+      </h2>
 
       <p>
         Follow Bait El Noor Arabic Church online.
@@ -746,26 +1725,36 @@
 
     </div>
 
+
     <div class="social-links">
+
 
       <a
         href="https://www.facebook.com/BaitalnoorAC"
         target="_blank"
-        class="social-link">
+        rel="noopener noreferrer"
+        class="social-link"
+      >
         Facebook
       </a>
+
 
       <a
         href="https://www.youtube.com/@baitelnoorac"
         target="_blank"
-        class="social-link">
+        rel="noopener noreferrer"
+        class="social-link"
+      >
         YouTube
       </a>
+
 
       <a
         href="https://www.instagram.com/baitelnoorac"
         target="_blank"
-        class="social-link">
+        rel="noopener noreferrer"
+        class="social-link"
+      >
         Instagram
       </a>
 
@@ -776,32 +1765,213 @@
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-  <h3>Bait El Noor Arabic Church</h3>
+  <h3>
+    Bait El Noor Arabic Church
+  </h3>
+
 
   <p>
     7127 Dutchland Pkwy • Liberty Township, OH 45044
   </p>
 
+
   <br>
 
+
   <p>
-    © 2026 Bait El Noor Arabic Church. All rights reserved.
+    © 2026 Bait El Noor Arabic Church.
+    All rights reserved.
   </p>
 
 </footer>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
+  /* =========================================================
+     MOBILE MENU
+  ========================================================= */
+
+  const menuToggle =
+    document.getElementById("menuToggle");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+  const aboutDropdown =
+    document.getElementById("aboutDropdown");
+
+  const aboutButton =
+    document.getElementById("aboutButton");
+
+
+  menuToggle.addEventListener("click", function () {
+
+    const isOpen =
+      navLinks.classList.toggle("open");
+
+    menuToggle.classList.toggle(
+      "active",
+      isOpen
+    );
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      isOpen
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen
+        ? "Close navigation menu"
+        : "Open navigation menu"
+    );
+
+    document.body.classList.toggle(
+      "menu-open",
+      isOpen
+    );
+
+  });
+
+
+  /* =========================================================
+     MOBILE ABOUT DROPDOWN
+  ========================================================= */
+
+  aboutButton.addEventListener(
+    "click",
+    function (event) {
+
+      if (window.innerWidth <= 800) {
+
+        event.preventDefault();
+
+        const isOpen =
+          aboutDropdown.classList.toggle("open");
+
+        aboutButton.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     CLOSE MOBILE MENU
+  ========================================================= */
+
+  function closeMobileMenu() {
+
+    if (window.innerWidth <= 800) {
+
+      navLinks.classList.remove("open");
+
+      menuToggle.classList.remove("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+      aboutDropdown.classList.remove("open");
+
+      aboutButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     RESET MENU WHEN RESIZING
+  ========================================================= */
+
+  window.addEventListener(
+    "resize",
+    function () {
+
+      if (window.innerWidth > 800) {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.classList.remove("active");
+
+        document.body.classList.remove(
+          "menu-open"
+        );
+
+        aboutDropdown.classList.remove("open");
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     LANGUAGE
+     
+     Temporary framework.
+     We will build the complete Arabic translation next.
+  ========================================================= */
+
   function toggleLanguage() {
-    alert("Arabic version coming next!");
+
+    alert(
+      "The Arabic version will be added next."
+    );
+
+  }
+
+
+  /* =========================================================
+     DONATION
+     
+     Temporary until the church donation provider
+     is selected.
+  ========================================================= */
+
+  function donationComingSoon(event) {
+
+    event.preventDefault();
+
+    alert(
+      "Online giving will be available soon."
+    );
+
   }
 
 </script>
+
 
 </body>
 </html>
