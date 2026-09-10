@@ -1340,21 +1340,20 @@
       </div>
 
 
-      <div
-        class="about-box"
-        id="beliefs"
-      >
-
-        <h3 id="beliefs-title">
-          Our Beliefs
-        </h3>
-
-        <p id="beliefs-desc">
-          Learn more about the faith and beliefs that guide
-          our church.
-        </p>
-
-      </div>
+      <div class="about-box" id="beliefs">
+  <h3 id="beliefs-title">Our Beliefs</h3>
+  <p id="beliefs-desc">
+    We are an Arabic church in Cincinnati, Ohio, USA. Our aim is to grow as a community rooted in the teachings of our Lord Jesus Christ and the Holy Bible, practically embodying what it means to be Ecclesia.<br><br>
+    We are committed to embracing the infallibility and credibility of the Holy Bible as we strengthen our faith together.<br><br>
+    We believe in the incarnation of the Son—the Word of God became flesh—and how it continues to shape our lives.<br><br>
+    As we grow, we eagerly anticipate the work, gifts, and leadership of the Holy Spirit to the collective body of Christ from different backgrounds and denominations.<br><br>
+    We believe that we have a call to change our community and to have a meaningful impact in the lives of those around us.<br><br>
+    We affirm the sanctity of marriage between a man and a woman.<br><br>
+    We affirm the sanctity of life.<br><br>
+    As we move forward, we embrace the belief that Jesus left the church as a continuation of His incarnation on earth, sending us to be Flames everywhere.<br><br>
+    <strong>Our watchword:</strong> "Let your light shine before others..." (Matthew 5:16).
+  </p>
+</div>
 
     </div>
 
@@ -1904,7 +1903,7 @@
       leadershipTitle: "Leadership",
       leadershipDesc: "Meet the people serving and leading our church community.",
       beliefsTitle: "Our Beliefs",
-      beliefsDesc: "Learn more about the faith and beliefs that guide our church.",
+      beliefsDesc: "We are an Arabic church in Cincinnati, Ohio, USA. Our aim is to grow as a community rooted in the teachings of our Lord Jesus Christ and the Holy Bible, practically embodying what it means to be Ecclesia.<br><br>We are committed to embracing the infallibility and credibility of the Holy Bible as we strengthen our faith together.<br><br>We believe in the incarnation of the Son—the Word of God became flesh—and how it continues to shape our lives.<br><br>As we grow, we eagerly anticipate the work, gifts, and leadership of the Holy Spirit to the collective body of Christ from different backgrounds and denominations.<br><br>We believe that we have a call to change our community and to have a meaningful impact in the lives of those around us.<br><br>We affirm the sanctity of marriage between a man and a woman.<br><br>We affirm the sanctity of life.<br><br>As we move forward, we embrace the belief that Jesus left the church as a continuation of His incarnation on earth, sending us to be Flames everywhere.<br><br><strong>Our watchword:</strong> \"Let your light shine before others...\" (Matthew 5:16).",
       serviceSectionTitle: "Join Us for Worship",
       serviceSectionSubtitle: "We would be happy to have you worship with us.",
       serviceCardTitle: "Weekly Service",
@@ -1967,7 +1966,7 @@
       leadershipTitle: "القيادة والخدام",
       leadershipDesc: "اتعرف على الخدام والمسؤولين عن خدمة الكنيسة.",
       beliefsTitle: "إيماننا",
-      beliefsDesc: "اعرف اكتر عن الإيمان والعقيدة اللي بنعيش بيهم.",
+	beliefsDesc: "كنيسة عربية في مدينة سينسيناتي بولاية أوهايو الأمريكية.<br><br>هدفنا اننا نعيش الكنيسة بحسب فكر الرب يسوع المسيح وبناءً على تعاليم الكتاب المقدس (إيكليسيا).<br><br>نؤمن بعصمة وصدق وحي الكتاب المقدس.<br><br>نؤمن بتجسد أقنوم الابن (كلمة اللّٰه / اللّٰه الظاهر في الجسد).<br><br>نؤمن بعمل ومواهب وقيادة الرب الروح القدس لجسد المسيح \"الكنيسة المؤمنين من كل الخلفيات والطوائف\".<br><br>نؤمن بإرسالية ودعوة الكنيسة لتغيير مجتمعها والتأثير في مجريات الحياة اليومية للناس.<br><br>نؤمن بقدسية العلاقة الزوجية بين رجل و إمرأة.<br><br>نؤمن بقدسية الحياة.<br><br>نؤمن ان الرب يسوع ترك الكنيسة كاستمرارية لتجسده على الارض وأنه أرسلنا كشعلات نار لكل مكان نوجد فيه.<br><br><strong>شعارنا:</strong> “فليضئ نوركم هكذا”.. (مت ١٦ :٥).",
       serviceSectionTitle: "تعالوا نعبد ربنا سوا",
       serviceSectionSubtitle: "بنفرح جداً بحضوركم وعبادتكم معانا.",
       serviceCardTitle: "الاجتماع الأسبوعي",
@@ -2043,7 +2042,7 @@
     document.getElementById("leadership-title").innerText = t.leadershipTitle;
     document.getElementById("leadership-desc").innerText = t.leadershipDesc;
     document.getElementById("beliefs-title").innerText = t.beliefsTitle;
-    document.getElementById("beliefs-desc").innerText = t.beliefsDesc;
+    document.getElementById("beliefs-desc").innerHTML = t.beliefsDesc;
 
     document.getElementById("service-section-title").innerText = t.serviceSectionTitle;
     document.getElementById("service-section-subtitle").innerText = t.serviceSectionSubtitle;
