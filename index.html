@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Bait El Noor Arabic Church</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <meta
     name="description"
@@ -755,39 +756,48 @@
     }
 
     .social-links {
-      display: flex;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
 
-      justify-content: center;
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dce1e5;
+  border-radius: 50%;
+  color: #234b63;
+  font-size: 22px;
+  background: white;
+  transition: all 0.25s ease;
+}
 
-      gap: 15px;
+/* Brand Hover Colors */
+.social-link.facebook:hover {
+  background: #1877F2;
+  color: white;
+  border-color: #1877F2;
+  transform: translateY(-3px);
+}
 
-      flex-wrap: wrap;
+.social-link.youtube:hover {
+  background: #FF0000;
+  color: white;
+  border-color: #FF0000;
+  transform: translateY(-3px);
+}
 
-      margin-top: 25px;
-    }
-
-    .social-link {
-      border: 1px solid #dce1e5;
-
-      padding: 13px 22px;
-
-      border-radius: 30px;
-
-      color: #234b63;
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .social-link:hover {
-      background: #234b63;
-
-      color: white;
-
-      transform: translateY(-2px);
-    }
+.social-link.instagram:hover {
+  background: #E4405F;
+  color: white;
+  border-color: #E4405F;
+  transform: translateY(-3px);
+}
 
 
     /* =========================================================
@@ -1729,37 +1739,37 @@
 
     <div class="social-links">
 
+  <a
+    href="https://www.facebook.com/BaitalnoorAC"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="social-link facebook"
+    aria-label="Facebook"
+  >
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
 
-      <a
-        href="https://www.facebook.com/BaitalnoorAC"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-link"
-      >
-        Facebook
-      </a>
+  <a
+    href="https://www.youtube.com/@baitelnoorac"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="social-link youtube"
+    aria-label="YouTube"
+  >
+    <i class="fa-brands fa-youtube"></i>
+  </a>
 
+  <a
+    href="https://www.instagram.com/baitelnoorac"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="social-link instagram"
+    aria-label="Instagram"
+  >
+    <i class="fa-brands fa-instagram"></i>
+  </a>
 
-      <a
-        href="https://www.youtube.com/@baitelnoorac"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-link"
-      >
-        YouTube
-      </a>
-
-
-      <a
-        href="https://www.instagram.com/baitelnoorac"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-link"
-      >
-        Instagram
-      </a>
-
-    </div>
+</div>
 
   </div>
 
