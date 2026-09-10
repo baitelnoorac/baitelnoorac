@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title id="site-title">Bait El Noor Arabic Church</title>
+  <!-- Title (Shown in Google Search Results & Browser Tabs) -->
+  <title>Bait El Noor Arabic Church |  كنيسة بيت النور العربيه - Cincinnati, OH</title>
 
-  <meta
-    name="description"
-    content="Bait El Noor Arabic Church in Liberty Township, Ohio. Join us for worship, fellowship, sermons, events, and community."
-  >
+  <!-- Meta Description (Shown under title in Google Search) -->
+  <meta 
+    name="description" 
+    content="Bait El Noor is an Arabic church in Cincinnati, Ohio. Join our community for worship, teaching, and fellowship." 
+  />
+
+  <!-- Open Graph Tags (For social media share previews on WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bait El Noor Arabic Church | كنيسة بيت النور العربيه" />
+  <meta property="og:description" content="An Arabic church in Cincinnati, Ohio rooted in the teachings of Jesus Christ." />
+  <meta property="og:image" content="https://baitelnoorac.com/logo.png" />
+  <meta property="og:url" content="https://baitelnoorac.com" />
 
   <meta name="theme-color" content="#234b63">
 
@@ -2011,6 +2020,11 @@
     // Toggle Direction & Language attributes
     document.documentElement.setAttribute("dir", currentLang === "ar" ? "rtl" : "ltr");
     document.documentElement.setAttribute("lang", currentLang === "ar" ? "ar-EG" : "en");
+	  	if (currentLang === 'ar') {
+ 	 document.title = "كنيسة بيت النور العربية | سينسيناتي، أوهايو";
+	} else {
+	  document.title = "Bait El Noor Arabic Church | Cincinnati, OH";
+	}
 
     // Replace text content
     document.getElementById("site-title").innerText = t.siteTitle;
