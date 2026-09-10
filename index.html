@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bait El Noor Arabic Church</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title id="site-title">Bait El Noor Arabic Church</title>
 
   <meta
     name="description"
@@ -13,6 +12,9 @@
   >
 
   <meta name="theme-color" content="#234b63">
+
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
 
@@ -37,6 +39,12 @@
       background: #ffffff;
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* RTL Support for Arabic */
+    [dir="rtl"] body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: right;
     }
 
     body.menu-open {
@@ -180,7 +188,6 @@
         visibility 0.2s ease;
     }
 
-    /* Small invisible bridge prevents dropdown disappearing */
     .dropdown-content::before {
       content: "";
       position: absolute;
@@ -715,6 +722,8 @@
       padding: 40px;
 
       border-radius: 15px;
+
+      text-align: inherit;
     }
 
     .address h3 {
@@ -756,48 +765,47 @@
     }
 
     .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
 
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #dce1e5;
-  border-radius: 50%;
-  color: #234b63;
-  font-size: 22px;
-  background: white;
-  transition: all 0.25s ease;
-}
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #dce1e5;
+      border-radius: 50%;
+      color: #234b63;
+      font-size: 22px;
+      background: white;
+      transition: all 0.25s ease;
+    }
 
-/* Brand Hover Colors */
-.social-link.facebook:hover {
-  background: #1877F2;
-  color: white;
-  border-color: #1877F2;
-  transform: translateY(-3px);
-}
+    .social-link.facebook:hover {
+      background: #1877F2;
+      color: white;
+      border-color: #1877F2;
+      transform: translateY(-3px);
+    }
 
-.social-link.youtube:hover {
-  background: #FF0000;
-  color: white;
-  border-color: #FF0000;
-  transform: translateY(-3px);
-}
+    .social-link.youtube:hover {
+      background: #FF0000;
+      color: white;
+      border-color: #FF0000;
+      transform: translateY(-3px);
+    }
 
-.social-link.instagram:hover {
-  background: #E4405F;
-  color: white;
-  border-color: #E4405F;
-  transform: translateY(-3px);
-}
+    .social-link.instagram:hover {
+      background: #E4405F;
+      color: white;
+      border-color: #E4405F;
+      transform: translateY(-3px);
+    }
 
 
     /* =========================================================
@@ -932,9 +940,6 @@
         margin-top: 8px;
       }
 
-
-      /* Mobile About */
-
       .dropdown {
         width: 100%;
       }
@@ -947,19 +952,19 @@
         justify-content: space-between;
       }
 
-     .dropdown-content {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    box-shadow: none !important;
-    border-radius: 8px;
-    padding: 5px 0 !important;
-    background: #f5f7f8 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    display: none;
-}
+      .dropdown-content {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        border-radius: 8px;
+        padding: 5px 0 !important;
+        background: #f5f7f8 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        display: none;
+      }
 
       .dropdown.open .dropdown-content {
         display: block;
@@ -969,25 +974,26 @@
         display: none;
       }
 
- .dropdown-content a {
-    display: block !important;
-    width: 100%;
-    padding: 12px 20px !important;
-    font-size: 15px !important;
-    color: #34495e !important;
-    background: #ffffff !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid #e5e8ea;
-    text-align: left;
-    line-height: 1.5;
-}
+      .dropdown-content a {
+        display: block !important;
+        width: 100%;
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+        color: #34495e !important;
+        background: #ffffff !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid #e5e8ea;
+        text-align: inherit;
+        line-height: 1.5;
+      }
 
-.dropdown-content a:hover,
-.dropdown-content a:focus,
-.dropdown-content a:active {
-    color: #9a7538 !important;
-    background: #f4f6f7 !important;
-}
+      .dropdown-content a:hover,
+      .dropdown-content a:focus,
+      .dropdown-content a:active {
+        color: #9a7538 !important;
+        background: #f4f6f7 !important;
+      }
+      
       .dropdown-content a:last-child {
         border-bottom: none;
       }
@@ -995,9 +1001,6 @@
       .dropdown.open .dropbtn::after {
         transform: rotate(180deg);
       }
-
-
-      /* Hero */
 
       .hero {
         min-height: 680px;
@@ -1023,9 +1026,6 @@
         font-size: 18px;
       }
 
-
-      /* Sections */
-
       section {
         padding: 70px 20px;
       }
@@ -1033,9 +1033,6 @@
       .section-title h2 {
         font-size: 32px;
       }
-
-
-      /* Visit */
 
       .visit-grid {
         grid-template-columns: 1fr;
@@ -1114,8 +1111,8 @@
   <div class="nav-container">
 
     <a href="#home" class="brand" onclick="closeMobileMenu()">
-      Bait El Noor
-      <span>Arabic Church</span>
+      <span id="brand-main">Bait El Noor</span>
+      <span id="brand-sub">Arabic Church</span>
     </a>
 
 
@@ -1140,15 +1137,15 @@
 
         <div class="dropdown-content">
 
-          <a href="#our-story" onclick="closeMobileMenu()">
+          <a href="#our-story" id="nav-story" onclick="closeMobileMenu()">
             Our Story
           </a>
 
-          <a href="#leadership" onclick="closeMobileMenu()">
+          <a href="#leadership" id="nav-leadership" onclick="closeMobileMenu()">
             Leadership
           </a>
 
-          <a href="#beliefs" onclick="closeMobileMenu()">
+          <a href="#beliefs" id="nav-beliefs" onclick="closeMobileMenu()">
             Our Beliefs
           </a>
 
@@ -1157,23 +1154,23 @@
       </div>
 
 
-      <a href="#service" onclick="closeMobileMenu()">
+      <a href="#service" id="nav-service" onclick="closeMobileMenu()">
         Service
       </a>
 
-      <a href="#sermons" onclick="closeMobileMenu()">
+      <a href="#sermons" id="nav-sermons" onclick="closeMobileMenu()">
         Sermons
       </a>
 
-      <a href="#events" onclick="closeMobileMenu()">
+      <a href="#events" id="nav-events" onclick="closeMobileMenu()">
         Events
       </a>
 
-      <a href="#giving" onclick="closeMobileMenu()">
+      <a href="#giving" id="nav-giving" onclick="closeMobileMenu()">
         Give
       </a>
 
-      <a href="#visit" onclick="closeMobileMenu()">
+      <a href="#visit" id="nav-visit" onclick="closeMobileMenu()">
         Visit
       </a>
 
@@ -1228,13 +1225,13 @@
     >
 
 
-    <h1>
+    <h1 id="hero-title">
       Welcome to<br>
       Bait El Noor Arabic Church
     </h1>
 
 
-    <p>
+    <p id="hero-subtitle">
       A place of faith, hope, worship, and community.
       We would love to welcome you.
     </p>
@@ -1244,6 +1241,7 @@
 
       <a
         href="#visit"
+        id="hero-btn-visit"
         class="button button-primary"
       >
         Plan Your Visit
@@ -1252,6 +1250,7 @@
 
       <a
         href="#sermons"
+        id="hero-btn-sermons"
         class="button button-light"
       >
         Watch Sermons
@@ -1275,11 +1274,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="welcome-title">
         Welcome
       </h2>
 
-      <p>
+      <p id="welcome-subtitle">
         Everyone is welcome at Bait El Noor Arabic Church.
       </p>
 
@@ -1288,14 +1287,14 @@
 
     <div class="welcome-text">
 
-      <p>
+      <p id="welcome-desc">
         Bait El Noor Arabic Church in Cincinnati is a community
         centered on faith, worship, fellowship, and growing
         together in Christ.
       </p>
 
 
-      <p class="arabic">
+      <p class="arabic" id="welcome-arabic-verse">
         أهلاً بكم في كنيسة بيت النور العربية في سينسيناتي اوهايو
       </p>
 
@@ -1312,11 +1311,11 @@
         id="our-story"
       >
 
-        <h3>
+        <h3 id="story-title">
           Our Story
         </h3>
 
-        <p>
+        <p id="story-desc">
           Learn more about the story, journey, and ministry
           of Bait El Noor Arabic Church.
         </p>
@@ -1329,11 +1328,11 @@
         id="leadership"
       >
 
-        <h3>
+        <h3 id="leadership-title">
           Leadership
         </h3>
 
-        <p>
+        <p id="leadership-desc">
           Meet the people serving and leading our church
           community.
         </p>
@@ -1346,11 +1345,11 @@
         id="beliefs"
       >
 
-        <h3>
+        <h3 id="beliefs-title">
           Our Beliefs
         </h3>
 
-        <p>
+        <p id="beliefs-desc">
           Learn more about the faith and beliefs that guide
           our church.
         </p>
@@ -1379,11 +1378,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="service-section-title">
         Join Us for Worship
       </h2>
 
-      <p>
+      <p id="service-section-subtitle">
         We would be happy to have you worship with us.
       </p>
 
@@ -1397,17 +1396,17 @@
       </div>
 
 
-      <h3>
+      <h3 id="service-card-title">
         Weekly Service
       </h3>
 
 
-      <div class="service-time">
+      <div class="service-time" id="service-card-time">
         Every Friday • 7:00 PM
       </div>
 
 
-      <p>
+      <p id="service-card-address">
         7127 Dutchland Pkwy<br>
         Liberty Township, OH 45044
       </p>
@@ -1421,6 +1420,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="button button-primary"
+        id="service-card-btn"
       >
         Get Directions
       </a>
@@ -1444,11 +1444,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="connect-title">
         Connect With Us
       </h2>
 
-      <p>
+      <p id="connect-subtitle">
         Stay connected with our church community throughout
         the week.
       </p>
@@ -1467,11 +1467,11 @@
           🎥
         </div>
 
-        <h3>
+        <h3 id="card-sermons-title">
           Sermons
         </h3>
 
-        <p>
+        <p id="card-sermons-desc">
           Watch messages and sermons from
           Bait El Noor Arabic Church.
         </p>
@@ -1483,6 +1483,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="button button-primary"
+          id="card-sermons-btn"
         >
           Watch on YouTube
         </a>
@@ -1501,11 +1502,11 @@
           📅
         </div>
 
-        <h3>
+        <h3 id="card-events-title">
           Events
         </h3>
 
-        <p>
+        <p id="card-events-desc">
           Check back here for upcoming church events
           and activities.
         </p>
@@ -1521,11 +1522,11 @@
           🙏
         </div>
 
-        <h3>
+        <h3 id="card-community-title">
           Community
         </h3>
 
-        <p>
+        <p id="card-community-desc">
           Come worship, fellowship, and grow together
           with us.
         </p>
@@ -1550,11 +1551,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="events-section-title">
         Upcoming Events
       </h2>
 
-      <p>
+      <p id="events-section-subtitle">
         Stay up to date with what's happening at Bait El Noor.
       </p>
 
@@ -1563,7 +1564,7 @@
 
     <div class="event-note">
 
-      <p>
+      <p id="events-note-desc">
         Upcoming church events will be posted here.
       </p>
 
@@ -1587,22 +1588,21 @@
   <div class="container">
 
 
-    <h2>
+    <h2 id="giving-title">
       Give Online
     </h2>
 
 
-    <p>
+    <p id="giving-subtitle">
       Your generosity helps support the ministry and mission
       of Bait El Noor Arabic Church.
     </p>
 
 
-    <!-- Donation platform will be connected here -->
-
     <a
       href="#"
       class="button button-primary"
+      id="giving-btn"
       onclick="donationComingSoon(event)"
     >
       Give Online
@@ -1628,11 +1628,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="visit-title">
         Plan Your Visit
       </h2>
 
-      <p>
+      <p id="visit-subtitle">
         We look forward to seeing you.
       </p>
 
@@ -1646,13 +1646,13 @@
 
       <div class="address">
 
-        <h3>
+        <h3 id="visit-find-title">
           📍 Find Us
         </h3>
 
 
         <p>
-          <strong>
+          <strong id="visit-church-name">
             Bait El Noor Arabic Church
           </strong>
         </p>
@@ -1661,7 +1661,7 @@
         <br>
 
 
-        <p>
+        <p id="visit-address-text">
           7127 Dutchland Pkwy<br>
           Liberty Township, OH 45044
         </p>
@@ -1671,11 +1671,11 @@
 
 
         <p>
-          <strong>
+          <strong id="visit-time-label">
             Service:
           </strong>
           <br>
-          Friday at 7:00 PM
+          <span id="visit-time-val">Friday at 7:00 PM</span>
         </p>
 
 
@@ -1687,6 +1687,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="button button-primary"
+          id="visit-map-btn"
         >
           Open in Google Maps
         </a>
@@ -1726,11 +1727,11 @@
 
     <div class="section-title">
 
-      <h2>
+      <h2 id="social-title">
         Stay Connected
       </h2>
 
-      <p>
+      <p id="social-subtitle">
         Follow Bait El Noor Arabic Church online.
       </p>
 
@@ -1739,37 +1740,37 @@
 
     <div class="social-links">
 
-  <a
-    href="https://www.facebook.com/BaitalnoorAC"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="social-link facebook"
-    aria-label="Facebook"
-  >
-    <i class="fa-brands fa-facebook-f"></i>
-  </a>
+      <a
+        href="https://www.facebook.com/BaitalnoorAC"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="Facebook"
+      >
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
 
-  <a
-    href="https://www.youtube.com/@baitelnoorac"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="social-link youtube"
-    aria-label="YouTube"
-  >
-    <i class="fa-brands fa-youtube"></i>
-  </a>
+      <a
+        href="https://www.youtube.com/@baitelnoorac"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link youtube"
+        aria-label="YouTube"
+      >
+        <i class="fa-brands fa-youtube"></i>
+      </a>
 
-  <a
-    href="https://www.instagram.com/baitelnoorac"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="social-link instagram"
-    aria-label="Instagram"
-  >
-    <i class="fa-brands fa-instagram"></i>
-  </a>
+      <a
+        href="https://www.instagram.com/baitelnoorac"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
 
-</div>
+    </div>
 
   </div>
 
@@ -1783,12 +1784,12 @@
 
 <footer>
 
-  <h3>
+  <h3 id="footer-title">
     Bait El Noor Arabic Church
   </h3>
 
 
-  <p>
+  <p id="footer-address">
     7127 Dutchland Pkwy • Liberty Township, OH 45044
   </p>
 
@@ -1796,7 +1797,7 @@
   <br>
 
 
-  <p>
+  <p id="footer-copy">
     © 2026 Bait El Noor Arabic Church.
     All rights reserved.
   </p>
@@ -1815,170 +1816,288 @@
      MOBILE MENU
   ========================================================= */
 
-  const menuToggle =
-    document.getElementById("menuToggle");
-
-  const navLinks =
-    document.getElementById("navLinks");
-
-  const aboutDropdown =
-    document.getElementById("aboutDropdown");
-
-  const aboutButton =
-    document.getElementById("aboutButton");
-
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const aboutDropdown = document.getElementById("aboutDropdown");
+  const aboutButton = document.getElementById("aboutButton");
 
   menuToggle.addEventListener("click", function () {
-
-    const isOpen =
-      navLinks.classList.toggle("open");
-
-    menuToggle.classList.toggle(
-      "active",
-      isOpen
-    );
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen
-    );
-
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen
-        ? "Close navigation menu"
-        : "Open navigation menu"
-    );
-
-    document.body.classList.toggle(
-      "menu-open",
-      isOpen
-    );
-
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    document.body.classList.toggle("menu-open", isOpen);
   });
-
 
   /* =========================================================
      MOBILE ABOUT DROPDOWN
   ========================================================= */
 
-  aboutButton.addEventListener(
-    "click",
-    function (event) {
-
-      if (window.innerWidth <= 800) {
-
-        event.preventDefault();
-
-        const isOpen =
-          aboutDropdown.classList.toggle("open");
-
-        aboutButton.setAttribute(
-          "aria-expanded",
-          isOpen
-        );
-
-      }
-
+  aboutButton.addEventListener("click", function (event) {
+    if (window.innerWidth <= 800) {
+      event.preventDefault();
+      const isOpen = aboutDropdown.classList.toggle("open");
+      aboutButton.setAttribute("aria-expanded", isOpen);
     }
-  );
-
+  });
 
   /* =========================================================
      CLOSE MOBILE MENU
   ========================================================= */
 
   function closeMobileMenu() {
-
     if (window.innerWidth <= 800) {
-
       navLinks.classList.remove("open");
-
       menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
-      document.body.classList.remove(
-        "menu-open"
-      );
-
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      document.body.classList.remove("menu-open");
       aboutDropdown.classList.remove("open");
-
-      aboutButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
+      aboutButton.setAttribute("aria-expanded", "false");
     }
-
   }
-
 
   /* =========================================================
      RESET MENU WHEN RESIZING
   ========================================================= */
 
-  window.addEventListener(
-    "resize",
-    function () {
-
-      if (window.innerWidth > 800) {
-
-        navLinks.classList.remove("open");
-
-        menuToggle.classList.remove("active");
-
-        document.body.classList.remove(
-          "menu-open"
-        );
-
-        aboutDropdown.classList.remove("open");
-
-      }
-
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 800) {
+      navLinks.classList.remove("open");
+      menuToggle.classList.remove("active");
+      document.body.classList.remove("menu-open");
+      aboutDropdown.classList.remove("open");
     }
-  );
-
+  });
 
   /* =========================================================
-     LANGUAGE
-     
-     Temporary framework.
-     We will build the complete Arabic translation next.
+     LANGUAGE DICTIONARY (Egyptian Arabic - ar-EG)
   ========================================================= */
 
+  let currentLang = "en";
+
+  const translations = {
+    en: {
+      siteTitle: "Bait El Noor Arabic Church",
+      brandMain: "Bait El Noor",
+      brandSub: "Arabic Church",
+      aboutButton: "About",
+      navStory: "Our Story",
+      navLeadership: "Leadership",
+      navBeliefs: "Our Beliefs",
+      navService: "Service",
+      navSermons: "Sermons",
+      navEvents: "Events",
+      navGiving: "Give",
+      navVisit: "Visit",
+      langButton: "العربية",
+      heroTitle: "Welcome to<br>Bait El Noor Arabic Church",
+      heroSubtitle: "A place of faith, hope, worship, and community. We would love to welcome you.",
+      heroBtnVisit: "Plan Your Visit",
+      heroBtnSermons: "Watch Sermons",
+      welcomeTitle: "Welcome",
+      welcomeSubtitle: "Everyone is welcome at Bait El Noor Arabic Church.",
+      welcomeDesc: "Bait El Noor Arabic Church in Cincinnati is a community centered on faith, worship, fellowship, and growing together in Christ.",
+      welcomeArabicVerse: "أهلاً بكم في كنيسة بيت النور العربية في سينسيناتي اوهايو",
+      storyTitle: "Our Story",
+      storyDesc: "Learn more about the story, journey, and ministry of Bait El Noor Arabic Church.",
+      leadershipTitle: "Leadership",
+      leadershipDesc: "Meet the people serving and leading our church community.",
+      beliefsTitle: "Our Beliefs",
+      beliefsDesc: "Learn more about the faith and beliefs that guide our church.",
+      serviceSectionTitle: "Join Us for Worship",
+      serviceSectionSubtitle: "We would be happy to have you worship with us.",
+      serviceCardTitle: "Weekly Service",
+      serviceCardTime: "Every Friday • 7:00 PM",
+      serviceCardAddress: "7127 Dutchland Pkwy<br>Liberty Township, OH 45044",
+      serviceCardBtn: "Get Directions",
+      connectTitle: "Connect With Us",
+      connectSubtitle: "Stay connected with our church community throughout the week.",
+      cardSermonsTitle: "Sermons",
+      cardSermonsDesc: "Watch messages and sermons from Bait El Noor Arabic Church.",
+      cardSermonsBtn: "Watch on YouTube",
+      cardEventsTitle: "Events",
+      cardEventsDesc: "Check back here for upcoming church events and activities.",
+      cardCommunityTitle: "Community",
+      cardCommunityDesc: "Come worship, fellowship, and grow together with us.",
+      eventsSectionTitle: "Upcoming Events",
+      eventsSectionSubtitle: "Stay up to date with what's happening at Bait El Noor.",
+      eventsNoteDesc: "Upcoming church events will be posted here.",
+      givingTitle: "Give Online",
+      givingSubtitle: "Your generosity helps support the ministry and mission of Bait El Noor Arabic Church.",
+      givingBtn: "Give Online",
+      visitTitle: "Plan Your Visit",
+      visitSubtitle: "We look forward to seeing you.",
+      visitFindTitle: "📍 Find Us",
+      visitChurchName: "Bait El Noor Arabic Church",
+      visitAddressText: "7127 Dutchland Pkwy<br>Liberty Township, OH 45044",
+      visitTimeLabel: "Service:",
+      visitTimeVal: "Friday at 7:00 PM",
+      visitMapBtn: "Open in Google Maps",
+      socialTitle: "Stay Connected",
+      socialSubtitle: "Follow Bait El Noor Arabic Church online.",
+      footerTitle: "Bait El Noor Arabic Church",
+      footerAddress: "7127 Dutchland Pkwy • Liberty Township, OH 45044",
+      footerCopy: "© 2026 Bait El Noor Arabic Church. All rights reserved."
+    },
+    ar: {
+      siteTitle: "كنيسة بيت النور العربية",
+      brandMain: "بيت النور",
+      brandSub: "الكنيسة العربية",
+      aboutButton: "عن الكنيسة",
+      navStory: "قصتنا",
+      navLeadership: "القيادة والخدام",
+      navBeliefs: "إيماننا",
+      navService: "الاجتماعات",
+      navSermons: "العظات",
+      navEvents: "الأنشطة",
+      navGiving: "العطاء",
+      navVisit: "زورنا",
+      langButton: "English",
+      heroTitle: "أهلاً بكم في<br>كنيسة بيت النور العربية",
+      heroSubtitle: "مكان للإيمان والرجاء والعبادة والشركة. بنرحب بيك من كل قلوبنا.",
+      heroBtnVisit: "خطط لزيارتك",
+      heroBtnSermons: "اتفرج على العظات",
+      welcomeTitle: "أهلاً وسهلاً",
+      welcomeSubtitle: "الكل مرحب بيه في كنيسة بيت النور العربية.",
+      welcomeDesc: "كنيسة بيت النور العربية في سينسيناتي هي عيلة ومجتمع ممتلي بالإيمان، والعبادة، والشركة، والنمو سوا في المسيح.",
+      welcomeArabicVerse: "أهلاً بكم في كنيسة بيت النور العربية في سينسيناتي اوهايو",
+      storyTitle: "قصتنا",
+      storyDesc: "اعرف اكتر عن رحلة وتاريخ وخدمة كنيسة بيت النور العربية.",
+      leadershipTitle: "القيادة والخدام",
+      leadershipDesc: "اتعرف على الخدام والمسؤولين عن خدمة الكنيسة.",
+      beliefsTitle: "إيماننا",
+      beliefsDesc: "اعرف اكتر عن الإيمان والعقيدة اللي بنعيش بيهم.",
+      serviceSectionTitle: "تعالوا نعبد ربنا سوا",
+      serviceSectionSubtitle: "بنفرح جداً بحضوركم وعبادتكم معانا.",
+      serviceCardTitle: "الاجتماع الأسبوعي",
+      serviceCardTime: "كل يوم جمعة • 7:00 مساءً",
+      serviceCardAddress: "7127 Dutchland Pkwy<br>Liberty Township, OH 45044",
+      serviceCardBtn: "عنوان الكنيسة على الخريطة",
+      connectTitle: "خليك على تواصل معانا",
+      connectSubtitle: "تابع اخبار واجتماعات الكنيسة طول الأسبوع.",
+      cardSermonsTitle: "العظات",
+      cardSermonsDesc: "اتفرج على كلمة الله والعظات من كنيسة بيت النور.",
+      cardSermonsBtn: "شاهد على يوتيوب",
+      cardEventsTitle: "الأنشطة والأحداث",
+      cardEventsDesc: "تابعنا عشان تعرف المؤتمرات والأنشطة اللي جاية.",
+      cardCommunityTitle: "عيلتنا",
+      cardCommunityDesc: "تعال شاركنا العبادة والشركة ونكبر مع بعض في الإيمان.",
+      eventsSectionTitle: "الأنشطة اللي جاية",
+      eventsSectionSubtitle: "خليك متابع كل الجديد في كنيسة بيت النور.",
+      eventsNoteDesc: "هنعلن عن كل المؤتمرات والأنشطة الجديدة هنا.",
+      givingTitle: "العطاء أونلاين",
+      givingSubtitle: "عطاؤك ومحبتك بتسند خدمة ورسالة كنيسة بيت النور العربية.",
+      givingBtn: "تبرع أونلاين",
+      visitTitle: "خطط لزيارتك",
+      visitSubtitle: "مستنيين نشوفك وبنفرح بيك.",
+      visitFindTitle: "📍 عنواننا",
+      visitChurchName: "كنيسة بيت النور العربية",
+      visitAddressText: "7127 Dutchland Pkwy<br>Liberty Township, OH 45044",
+      visitTimeLabel: "الاجتماع الرئيسي:",
+      visitTimeVal: "الجمعة الساعة 7:00 مساءً",
+      visitMapBtn: "افتح في خرائط جوجل",
+      socialTitle: "خلينا متواصلين",
+      socialSubtitle: "تابع كنيسة بيت النور العربية على صفحات التواصل الاجتماعي.",
+      footerTitle: "كنيسة بيت النور العربية",
+      footerAddress: "7127 Dutchland Pkwy • Liberty Township, OH 45044",
+      footerCopy: "© 2026 كنيسة بيت النور العربية. جميع الحقوق محفوظة."
+    }
+  };
+
   function toggleLanguage() {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    const t = translations[currentLang];
 
-    alert(
-      "The Arabic version will be added next."
-    );
+    // Toggle Direction & Language attributes
+    document.documentElement.setAttribute("dir", currentLang === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("lang", currentLang === "ar" ? "ar-EG" : "en");
 
+    // Replace text content
+    document.getElementById("site-title").innerText = t.siteTitle;
+    document.getElementById("brand-main").innerText = t.brandMain;
+    document.getElementById("brand-sub").innerText = t.brandSub;
+    document.getElementById("aboutButton").childNodes[0].nodeValue = t.aboutButton + " ";
+    document.getElementById("nav-story").innerText = t.navStory;
+    document.getElementById("nav-leadership").innerText = t.navLeadership;
+    document.getElementById("nav-beliefs").innerText = t.navBeliefs;
+    document.getElementById("nav-service").innerText = t.navService;
+    document.getElementById("nav-sermons").innerText = t.navSermons;
+    document.getElementById("nav-events").innerText = t.navEvents;
+    document.getElementById("nav-giving").innerText = t.navGiving;
+    document.getElementById("nav-visit").innerText = t.navVisit;
+    document.getElementById("languageButton").innerText = t.langButton;
+
+    document.getElementById("hero-title").innerHTML = t.heroTitle;
+    document.getElementById("hero-subtitle").innerText = t.heroSubtitle;
+    document.getElementById("hero-btn-visit").innerText = t.heroBtnVisit;
+    document.getElementById("hero-btn-sermons").innerText = t.heroBtnSermons;
+
+    document.getElementById("welcome-title").innerText = t.welcomeTitle;
+    document.getElementById("welcome-subtitle").innerText = t.welcomeSubtitle;
+    document.getElementById("welcome-desc").innerText = t.welcomeDesc;
+    document.getElementById("welcome-arabic-verse").innerText = t.welcomeArabicVerse;
+
+    document.getElementById("story-title").innerText = t.storyTitle;
+    document.getElementById("story-desc").innerText = t.storyDesc;
+    document.getElementById("leadership-title").innerText = t.leadershipTitle;
+    document.getElementById("leadership-desc").innerText = t.leadershipDesc;
+    document.getElementById("beliefs-title").innerText = t.beliefsTitle;
+    document.getElementById("beliefs-desc").innerText = t.beliefsDesc;
+
+    document.getElementById("service-section-title").innerText = t.serviceSectionTitle;
+    document.getElementById("service-section-subtitle").innerText = t.serviceSectionSubtitle;
+    document.getElementById("service-card-title").innerText = t.serviceCardTitle;
+    document.getElementById("service-card-time").innerText = t.serviceCardTime;
+    document.getElementById("service-card-address").innerHTML = t.serviceCardAddress;
+    document.getElementById("service-card-btn").innerText = t.serviceCardBtn;
+
+    document.getElementById("connect-title").innerText = t.connectTitle;
+    document.getElementById("connect-subtitle").innerText = t.connectSubtitle;
+    document.getElementById("card-sermons-title").innerText = t.cardSermonsTitle;
+    document.getElementById("card-sermons-desc").innerText = t.cardSermonsDesc;
+    document.getElementById("card-sermons-btn").innerText = t.cardSermonsBtn;
+    document.getElementById("card-events-title").innerText = t.cardEventsTitle;
+    document.getElementById("card-events-desc").innerText = t.cardEventsDesc;
+    document.getElementById("card-community-title").innerText = t.cardCommunityTitle;
+    document.getElementById("card-community-desc").innerText = t.cardCommunityDesc;
+
+    document.getElementById("events-section-title").innerText = t.eventsSectionTitle;
+    document.getElementById("events-section-subtitle").innerText = t.eventsSectionSubtitle;
+    document.getElementById("events-note-desc").innerText = t.eventsNoteDesc;
+
+    document.getElementById("giving-title").innerText = t.givingTitle;
+    document.getElementById("giving-subtitle").innerText = t.givingSubtitle;
+    document.getElementById("giving-btn").innerText = t.givingBtn;
+
+    document.getElementById("visit-title").innerText = t.visitTitle;
+    document.getElementById("visit-subtitle").innerText = t.visitSubtitle;
+    document.getElementById("visit-find-title").innerText = t.visitFindTitle;
+    document.getElementById("visit-church-name").innerText = t.visitChurchName;
+    document.getElementById("visit-address-text").innerHTML = t.visitAddressText;
+    document.getElementById("visit-time-label").innerText = t.visitTimeLabel;
+    document.getElementById("visit-time-val").innerText = t.visitTimeVal;
+    document.getElementById("visit-map-btn").innerText = t.visitMapBtn;
+
+    document.getElementById("social-title").innerText = t.socialTitle;
+    document.getElementById("social-subtitle").innerText = t.socialSubtitle;
+
+    document.getElementById("footer-title").innerText = t.footerTitle;
+    document.getElementById("footer-address").innerText = t.footerAddress;
+    document.getElementById("footer-copy").innerText = t.footerCopy;
   }
 
 
   /* =========================================================
      DONATION
-     
-     Temporary until the church donation provider
-     is selected.
   ========================================================= */
 
   function donationComingSoon(event) {
-
     event.preventDefault();
-
-    alert(
-      "Online giving will be available soon."
-    );
-
+    const msg = currentLang === "ar"
+      ? "خدمة التبرع أونلاين هتكون متاحة قريب جداً."
+      : "Online giving will be available soon.";
+    alert(msg);
   }
 
 </script>
